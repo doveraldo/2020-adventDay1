@@ -30,6 +30,24 @@
       }    
   }
 
+  function findTwoNumbersSumTo( $result, $array ) {
+      foreach($array as $n) {
+          $diff = $result - $n;
+          if( in_array($diff, $array)) return array($n, $diff);
+      }
+
+      return false;
+  }
+
   // now find 3 numbers that sum to the target
-  
+  foreach($input as $n)
+  {
+      $diff = $target - $n;
+      if(($res = findTwoNumbersSumTo($diff, $input)) === false ) continue;
+
+      // found one
+      echo "Found ".$n." and (diff = ".$diff.") ".$res[0]." + ".$res[1]." = ".($n + $res[0] + $res[1])."\n";
+      echo "Multiplication = ".($n * $res[0] * $res[1])."\n";
+  break;
+  }
 ?>
